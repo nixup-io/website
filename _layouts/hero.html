@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html
+  dir="{{ site.direction | default: 'ltr' }}"
+  lang="{{ site.lang | default: 'en' }}"
+>
+  {% include head.html %}
+  <body>
+    <section class="hero is-link is-large">
+      <div class="hero-body">
+        {{ content }}
+      </div>
+    </section>
+
+    {% include footer.html %}
+    {% include script.html %}
+  </body>
+</html>
