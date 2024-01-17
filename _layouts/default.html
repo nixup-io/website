@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html
+  class="has-background-white-bis"
   dir="{{ site.direction | default: 'ltr' }}"
   lang="{{ site.lang | default: 'en' }}"
 >
   {% include head.html %}
   <body>
-    <section class="section">
-      <div class="container">
-        <h1 class="title">
-          {{ page.title }}
-        </h1>
-        <p class="subtitle">
-          {{ page.subtitle }}
-        </p>
-        {{ content }}
-      </div>
-    </section>
+    {% include navbar.html %}
+
+    {{ content }}
 
     {% include footer.html %}
     {% include script.html %}

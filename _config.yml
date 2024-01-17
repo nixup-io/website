@@ -17,13 +17,16 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-name: nixup.io
-title: nixup.io - Manage your Nix infrastructure with ease
+name: nixup
+slogan: Manage your infrastructure with ease
 email: info@nixup.io
 description: >- # this means to ignore newlines until "baseurl:"
-  Nixup helps you manage your infrastructure easily using Nix.
+  Deploy popular web applications and Internet services to servers <strong>you</strong> control.
+  Migrate between hosting providers easily and confidently.
+  Leverage the power of Nix without requiring a command line terminal or a PhD in Computer Science.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://nixup.io" # the base hostname & protocol for your site, e.g. http://example.com
+app_url: "https://app.nixup.io"
 github_username: nixup-io
 defaults:
   - scope:
