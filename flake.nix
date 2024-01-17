@@ -1,5 +1,5 @@
 {
-  description = "Nix flake for nixup-io website using Jekyll";
+  description = "Nix flake for the Nixup marketing website using Jekyll";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
@@ -20,16 +20,16 @@
           overlays = [ devshell.overlays.default ];
         };
         gems = pkgs.bundlerEnv rec {
-          name = "nixup-io-website-gems";
+          name = "nixup-marketing-website-gems";
           ruby = pkgs.ruby_3_2;
           gemdir = ./.;
         };
       in
       {
         devShells = rec {
-          default = nixup-io-website;
-          nixup-io-website = pkgs.devshell.mkShell {
-            name = "nixup-io-website";
+          default = nixup-marketing-website;
+          nixup-marketing-website = pkgs.devshell.mkShell {
+            name = "nixup-marketing-website";
             packages = [
               gems
               (pkgs.lowPrio gems.wrappedRuby)
