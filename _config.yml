@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 name: Nixup
-slogan: Manage your infrastructure with ease
+slogan: Easy and determinate devops
 email: info@nixup.io
 description: >- # this means to ignore newlines until "baseurl:"
   Deploy popular web applications and Internet services to servers <strong>you</strong> control.
