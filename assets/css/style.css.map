@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../../_sass/main.scss","style.scss"],"names":[],"mappings":"AAAQ;ACER;EACE","sourcesContent":["@import \"https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css\";\n","@import \"main\";\n\np.subtitle {\n  line-height: 1.5;\n}\n"],"file":"style.css"}
