@@ -219,6 +219,16 @@
     };
     version = "3.8.0";
   };
+  logger = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0gpg8gzi0xwymw4aaq2iafcbx31i3xzkg3fb30mdxn1d4qhc3dqa";
+      type = "gem";
+    };
+    version = "1.6.0";
+  };
   mercenary = {
     groups = ["default"];
     platforms = [];
@@ -260,6 +270,16 @@
       type = "gem";
     };
     version = "0.16.2";
+  };
+  prism = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "05j9bcxdz6wfnrjn32zvdwj1qsbp88mwx3rv7g256gziya6avc2r";
+      type = "gem";
+    };
+    version = "0.30.0";
   };
   public_suffix = {
     groups = ["default"];
@@ -322,6 +342,17 @@
     };
     version = "0.10.1";
   };
+  rbs = {
+    dependencies = ["logger"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0lph27fb8n2bwnqaqy0xm1jwjar7ljqrcq16ajhylh0yvfhfwqpj";
+      type = "gem";
+    };
+    version = "3.5.3";
+  };
   regexp_parser = {
     groups = ["default"];
     platforms = [];
@@ -374,6 +405,17 @@
     };
     version = "1.30.0";
   };
+  ruby-lsp = {
+    dependencies = ["language_server-protocol" "prism" "rbs" "sorbet-runtime"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "06mdl6dv3y6jnl4q0d2lm9h5m4lcqasvkqxdrb1ijyjb1d48xvgn";
+      type = "gem";
+    };
+    version = "0.17.16";
+  };
   ruby-progressbar = {
     groups = ["default"];
     platforms = [];
@@ -404,6 +446,16 @@
       type = "gem";
     };
     version = "1.69.7";
+  };
+  sorbet-runtime = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0grzlj8lv3hygb29hwxw5h8dvwqzdiq8y1x5l74j582a8icm8fss";
+      type = "gem";
+    };
+    version = "0.5.11549";
   };
   terminal-table = {
     dependencies = ["unicode-display_width"];

@@ -24,9 +24,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Deploy popular web applications and Internet services to servers <strong>you</strong> control.
   Migrate between hosting providers easily and confidently.
   Leverage the power of Nix without requiring a command line terminal or a PhD in Computer Science.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/website"
 url: "https://nixup.io" # the base hostname & protocol for your site, e.g. http://example.com
-app_url: "https://app.nixup.io"
 github_username: nixup-io
 defaults:
   - scope:

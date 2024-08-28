@@ -2,8 +2,7 @@
   description = "Nix flake for the Nixup marketing website using Jekyll";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     devshell = {
       url = "github:numtide/devshell";
       inputs = {
@@ -13,29 +12,39 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, devshell }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
+
+    let forAllSystems = function:
+      nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "x86_64-darwin"
+        "aarch64-linux"
+        "aarch64-darwin"
+      ] (system:
+        function (import nixpkgs {
           inherit system;
-          overlays = [ devshell.overlays.default ];
-        };
-        gems = pkgs.bundlerEnv rec {
-          name = "nixup-marketing-website-gems";
-          ruby = pkgs.ruby_3_2;
-          gemdir = ./.;
-        };
+          overlays = [
+            devshell.overlays.default
+          ];
+        }));
       in
       {
-        devShells = rec {
-          default = nixup-marketing-website;
-          nixup-marketing-website = pkgs.devshell.mkShell {
+        formatter = forAllSystems (pkgs: pkgs.alejandra);
+
+        devShells = forAllSystems (pkgs: {
+          default = pkgs.devshell.mkShell {
             name = "nixup-marketing-website";
-            packages = [
+            packages = let
+              gems = pkgs.bundlerEnv rec {
+                name = "nixup-marketing-website-gems";
+                ruby = pkgs.ruby_3_2;
+                gemdir = ./.;
+              };
+            in [
               gems
               (pkgs.lowPrio gems.wrappedRuby)
-              pkgs.nodePackages.prettier
               pkgs.rsync
             ];
+
             env = [
               {
                 name = "BUNDLE_FORCE_RUBY_PLATFORM";
@@ -62,24 +71,6 @@
                 '';
               }
               {
-                name = "lint:check";
-                category = "Linting";
-                help = "Check for linting errors";
-                command = ''
-                  set +e
-                  rubocop
-                '';
-              }
-              {
-                name = "lint:fix";
-                category = "Linting";
-                help = "Fix linting errors";
-                command = ''
-                  set +e
-                  rubocop -A
-                '';
-              }
-              {
                 name = "site:deploy";
                 help = "Deploy the website";
                 command = ''
@@ -88,7 +79,6 @@
               }
             ];
           };
-        };
-      }
-    );
+        });
+      };
 }
