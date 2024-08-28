@@ -1,16 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html
-  class="has-background-white-bis"
+  data-theme="light"
   dir="{{ site.direction | default: 'ltr' }}"
   lang="{{ site.lang | default: 'en' }}"
 >
   {% include head.html %}
   <body>
-    {% include navbar.html %}
-
-    {{ content }}
-
-    {% include footer.html %}
-    {% include script.html %}
+    {% include navbar.html %} {{ content }} {% include footer.html %} {% include
+    script.html %}
   </body>
 </html>

@@ -3,21 +3,55 @@ layout: hero
 ---
 
 <div class="container">
-  <p class="title is-size-1">{{ site.slogan }}</p>
-  <br />
-  <p class="subtitle">{{ site.description }}</p>
-</div>
+  <div class="columns">
+    <div class="column">
+      <p class="title is-size-1">deskOS</p>
+      <br />
+      <p class="subtitle">An easy to use, stable desktop operating system</p>
+      <a class="button is-info is-medium is-rounded is-light" href="#"
+        >Download deskOS</a
+      >
+    </div>
+    <div class="column">
+      <img src="assets/img/deskOS-screenshot.png" />
+    </div>
+  </div>
+  <section class="section">
+    <h1 class="title">Features</h1>
+    <div class="columns">
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-header-title is-centered">An operating system that gets out of your way</div>
+          </div>
+          <div class="card-content">No intrusive, blocking system updates or forced computer restarts. <strong>No ads, telemetry or spyware</strong>.</div>
+        </div>
+      </div>
+      <div class="column"></div>
+    </div>
 
-<div class="container mt-6">
-  <a class="button is-primary is-medium" href="{{ site.app_url }}/users/sign_up"
-    >Get started</a
-  >
-  <a href="/contact" class="button is-dark is-medium">Contact</a>
-</div>
+    <div class="columns">
+      <div class="column"></div>
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-header-title is-centered">Simplicity is key</div>
+          </div>
+          <div class="card-content">Just enough OS to perform <strong>basic tasks, browse the web and access web applications</strong>. Additional software can easily be installed via <a href="https://www.flatpak.org/">Flatpak</a>.</div>
+        </div>
+      </div>
+    </div>
 
-<div class="container mt-6">
-  <em
-    >Please note that Nixup is still in early beta. There may be bugs and not
-    all features are available yet.</em
-  >
+    <div class="columns">
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-header-title is-centered">Built on a stable base</div>
+          </div>
+          <div class="card-content">deskOS is based on <a href="https://nixos.org/">NixOS</a> to provide a <strong>stable</strong> and <strong>secure</strong> base for your system.</div>
+        </div>
+      </div>
+      <div class="column"></div>
+    </div>
+  </section>
 </div>
