@@ -1,8 +1,20 @@
-<footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      Michael Smith
-      © {{ "now" | date: "%Y" }}. All rights reserved.
+<footer class="footer has-background-info">
+  <div class="content">
+    <div class="columns">
+      <div class="column is-one-third">
+        <img src="assets/img/logo-white.svg" width="150" height="30" />
+      </div>
+      <div class="column">
+        <p class="has-text-grey has-text-weight-bold is-size-5">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          <a href="https://github.com/nixup-io" class="has-text-grey">GitHub</a>
+        </p>
+      </div>
+    </div>
+    <p class="has-text-centered has-text-white is-size-7">
+      © {{ "now" | date: "%Y" }} Michael Smith. All rights reserved.
     </p>
   </div>
 </footer>
