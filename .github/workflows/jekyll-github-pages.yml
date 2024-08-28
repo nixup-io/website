@@ -7,7 +7,7 @@ on:
 
 jobs:
   jekyll:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: 📂 setup
         uses: actions/checkout@v2
@@ -15,7 +15,7 @@ jobs:
       - name: 💎 setup ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: 3.2.4
 
       - name: 🔨 install dependencies & build site
         uses: limjh16/jekyll-action-ts@v2
