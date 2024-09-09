@@ -70,13 +70,6 @@
                   ${pkgs.bundix}/bin/bundix
                 '';
               }
-              {
-                name = "site:deploy";
-                help = "Deploy the website";
-                command = ''
-                  jekyll build && rsync -v -rz --checksum --delete ./_site/ app-1:/var/www/marketing
-                '';
-              }
             ];
           };
         });
