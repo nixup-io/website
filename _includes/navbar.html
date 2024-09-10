@@ -19,10 +19,10 @@
 
   <div id="main-navbar" class="navbar-menu">
     <div class="navbar-end">
-      <a href="{{ site.baseurl }}/desk-os/learn-more" class="navbar-item">deskOS</a>
-      <a href="{{ site.baseurl }}/about" class="navbar-item">About</a>
-      <a href="{{ site.baseurl }}/partners" class="navbar-item">Partners</a>
-      <a href="{{ site.baseurl }}/contact" class="navbar-item">Contact</a>
+      <a href="{{ site.baseurl }}/desk-os/learn-more" class="navbar-item{% if page.name == "learn-more.html" %} has-background-light-gray{% endif %}">deskOS</a>
+      <a href="{{ site.baseurl }}/about" class="navbar-item{% if page.name == "about.html" %} has-background-light-gray{% endif %}">About</a>
+      <a href="{{ site.baseurl }}/partners" class="navbar-item{% if page.name == "partners.html" %} has-background-light-gray{% endif %}">Partners</a>
+      <a href="{{ site.baseurl }}/contact" class="navbar-item{% if page.name == "contact.html" %} has-background-light-gray{% endif %}">Contact</a>
     </div>
   </div>
 </nav>
