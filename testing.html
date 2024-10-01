@@ -1,0 +1,189 @@
+<!doctype html>
+<html
+  data-theme="light"
+  dir="ltr"
+  lang="en"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta name="description" content="Nixup is on a quest to build simple yet powerful solutions using the Nix package manager. deskOS is an easy to use, stable desktop operating system. Nix consulting and development services."/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="https://kit.fontawesome.com/4a86388d34.js" crossorigin="anonymous"></script>
+  <title>Nixup - Moving Nix up in the world</title>
+</head>
+
+  <body>
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://nixup.io">
+      <img src="/assets/img/logo.svg" width="150" height="30" />
+    </a>
+
+    <a
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="main-navbar"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="main-navbar" class="navbar-menu">
+    <div class="navbar-end">
+      <a href="/desk-os/learn-more" class="navbar-item">deskOS</a>
+      <a href="/about" class="navbar-item">About</a>
+      <a href="/partners" class="navbar-item">Partners</a>
+      <a href="/contact" class="navbar-item">Contact</a>
+    </div>
+  </div>
+</nav>
+ <section class="section has-text-centered">
+  <h2 class="title is-2">Testing deskOS</h2>
+</section>
+
+<section class="section">
+  <div class="content">
+    <p>
+      Hello friend, thank you for taking the time to test deskOS. This document offers some context and instructions to help you along. You will also find a feedback template that you can use to report your findings.
+    </p>
+
+    <h1>Context</h1>
+    <p>
+      <ul>
+        <li>
+          deskOS is aimed at non-technical users, enabling them to use their computer to perform basic tasks such as browsing the web, accessing webapps, write documents and communicate with others. Please approach testing deskOS with a non-technical mindset or assist someone non-technical to test in your stead.
+        </li>
+        <li>
+          In contrast to some other Linux based operating systems, deskOS targets modern hardware only. It is meant to be used as a modern operating system on current day hardware, for example a <a href="https://frame.work/be/en/products/laptop-13-gen-amd">Framework Laptop 13</a>. deskOS is made for UEFI systems. Legacy BIOS systems are not supported and should not be tested.
+        </li>
+        <li>
+          Testing can be done in a virtual machine, which is arguably the easiest way. That said, deskOS is intended to run on real hardware and testing it that way provides even more valuable feedback.
+        </li>
+        <li>
+          Keep in mind that it is very unlikely that an end user will go through the installation process. They are not expected to. The installation will be performed by a systems integrator, employer or friend with technical skills. The current installer has been stripped of as many options as possible and is likely to be replaced by an even simpler one in the future.
+        </li>
+        <li>
+          deskOS is not intended for use in dual boot scenarios.
+        </li>
+        <li>
+          deskOS aims to provide a familiar computing interface with minimal configuration and customization options.
+        </li>
+      </ul>
+    </p>
+
+    <h1>System architecture</h1>
+    <p>
+      deskOS uses NixOS as a base. This has a few advantages:
+      <ul>
+        <li>
+          Nix does not update software in-place. Updated packages are instead put alongside the old ones and linked appropriately. This means you can always switch back to a previous known-good configuration at boot time and never end up with a broken system. A garbage collection process periodically ensures old packages are cleaned up, freeing up storage space.
+        </li>
+        <li>
+          System updates are quietly installed in the background and activated at the next restart. No intrusive nag screens will interrupt your work.
+        </li>
+        <li>
+          Nix builds reproducible systems based on a declarative configuration. This provides powerful remote management and compliance capabilities as well as the ability to generate a detailed software bill of materials (SBOM's).
+        </li>
+      </ul>
+    </p>
+    <p>
+      NixOS only provides the base operating system and desktop environment. Additional software can be installed and updated through Flatpak, which is automatically enabled in deskOS. The Flathub repository is installed out of the box.
+      <br>
+      This provides a clear separation between a solid, simple operating system layer and a bespoke configuration of additional software that can be easily managed by a non-technical end user.
+    </p>
+
+    <h1>Installation</h1>
+    <div class="notification is-danger">
+      <strong>Important:</strong> The deskOS installer is made to be used by technically skilled people <em>for testing purposes only</em>. To make the installation as streamlined as possible there are very few guardrails and confirmations before it will wipe all your existing data from the target system. <strong>Please do not test deskOS on hardware that contains valuable data.</strong>
+    </div>
+    <p>
+      Once you have decided which hardware or virtual machine to test deskOS on, you can proceed to download and install the ISO from the <a href="https://nixup.io/">Nixup website</a>. Although testers should have the mindset of a non-technical end user, it is assumed that they know how to install an operating system using an ISO. If this is not the case, please don't hesitate to reach out to <a href="mailto:info@nixup.io">info@nixup.io</a> for assistance.
+    </p>
+    <p>
+      You will need an Internet connection during the installation. If you use WiFi, you will have to reconnect deskOS to your WiFi network on first start because the configuration from the installer will not be copied to your new system.
+      After connecting deskOS to the WiFi, restart once more. This will activate the Flathub repository needed to install software with Flatpak.
+    </p>
+
+    <h1>Feedback</h1>
+    <p>
+      Your feedback is extremely valuable and very much appreciated. Please copy paste the template below in an email and send your findings to <a href="mailto:info@nixup.io">info@nixup.io</a>. Feel free to provide feedback on anything related to deskOS, including the contents of this document.
+    </p>
+    <h4>---start feedback template---</h4>
+    <p>
+      Hi, I've tested deskOS and here's my feedback:
+    </p>
+    <p>
+      Have you tested deskOS in a virtual machine or on real hardware?
+    </p>
+
+    <p>
+      What are the specifications of the virtual machine or real hardware?
+    </p>
+
+    <p>
+      Did the installation succeed? If not, what happened?
+    </p>
+
+    <p>
+      Did the computer boot into deskOS? If not, what happened?
+    </p>
+
+    <p>
+      Does all your hardware (camera, sound, brightness controls, ...) work?
+    </p>
+
+    <p>
+      Did you manage to connect deskOS to the Internet?
+    </p>
+
+    <p>
+      Were you able to install and use additional software through the Software app store using Flatpak?
+    </p>
+
+    <p>Do you have any other remarks, suggestions or questions?</p>
+
+    <h4>---end feedback template---</h4>
+
+    <h1>Thank you!</h1>
+  </div>
+</section>
+
+ <footer class="footer has-background-info">
+  <div class="content">
+    <div class="columns">
+      <div class="column is-one-third">
+        <img src="/assets/img/logo-white.svg" width="150" height="30" />
+      </div>
+      <div class="column">
+        <p class="has-text-grey has-text-weight-bold is-size-5">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          <a href="https://github.com/nixup-io" class="has-text-grey">GitHub</a>
+        </p>
+      </div>
+    </div>
+    <p class="has-text-centered has-text-white is-size-7">
+      © 2024 Michael Smith. All rights reserved.
+    </p>
+  </div>
+</footer>
+ <script
+  src="/assets/js/main.js"
+  type="text/javascript"
+></script>
+
+  </body>
+</html>
